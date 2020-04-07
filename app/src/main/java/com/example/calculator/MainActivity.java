@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -19,6 +20,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 System.exit(0);
+            }
+        });
+
+        Button about_button = (Button) findViewById((R.id.about_button));
+        final AlertDialog.Builder about_dialog = new AlertDialog.Builder(this);
+        about_dialog.setTitle("About");
+        about_dialog.setMessage("Developed by Urszula Sołogub\ngithub.com/urszulasologub\n2020");
+        about_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                about_dialog.show();
             }
         });
     }
