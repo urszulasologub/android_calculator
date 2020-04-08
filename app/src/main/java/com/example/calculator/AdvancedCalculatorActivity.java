@@ -33,32 +33,47 @@ public class AdvancedCalculatorActivity extends Activity {
 			memory_result = Double.parseDouble(current_value);
 			return;
 		}
-		if (last_action.equals("+"))
-			memory_result = memory_result + Double.parseDouble(current_value);
-		else if (last_action.equals("-"))
-			memory_result = memory_result - Double.parseDouble(current_value);
-		else if (last_action.equals("*")) {
-			memory_result = memory_result * Double.parseDouble(current_value);
-		} else if (last_action.equals("/")) {
-			memory_result = memory_result / Double.parseDouble(current_value);
-		} else if (last_action.equals("sin"))
-			memory_result = sin(Math.toRadians(Double.parseDouble(current_value)));
-		else if (last_action.equals("cos"))
-			memory_result = cos(Math.toRadians(Double.parseDouble(current_value)));
-		else if (last_action.equals("tan"))
-			memory_result = tan(Math.toRadians(Double.parseDouble(current_value)));
-		else if (last_action.equals("ln"))
-			memory_result = log(Double.parseDouble(current_value));
-		else if (last_action.equals("log"))
-			memory_result = log10(Double.parseDouble(current_value));
-		else if (last_action.equals("sqrt"))
-			memory_result = sqrt(Double.parseDouble(current_value));
-		else if (last_action.equals("square"))
-			memory_result = Double.parseDouble(current_value) * Double.parseDouble(current_value);
-		else if (last_action.equals("pow"))
-			memory_result = pow(memory_result, Double.parseDouble(current_value));
-		else if (last_action.equals("percent"))
-			memory_result *= (0.01 * Double.parseDouble(current_value));
+		switch (last_action) {
+			case "+":
+				memory_result = memory_result + Double.parseDouble(current_value);
+				break;
+			case "-":
+				memory_result = memory_result - Double.parseDouble(current_value);
+				break;
+			case "*":
+				memory_result = memory_result * Double.parseDouble(current_value);
+				break;
+			case "/":
+				memory_result = memory_result / Double.parseDouble(current_value);
+				break;
+			case "sin":
+				memory_result = sin(Math.toRadians(Double.parseDouble(current_value)));
+				break;
+			case "cos":
+				memory_result = cos(Math.toRadians(Double.parseDouble(current_value)));
+				break;
+			case "tan":
+				memory_result = tan(Math.toRadians(Double.parseDouble(current_value)));
+				break;
+			case "ln":
+				memory_result = log(Double.parseDouble(current_value));
+				break;
+			case "log":
+				memory_result = log10(Double.parseDouble(current_value));
+				break;
+			case "sqrt":
+				memory_result = sqrt(Double.parseDouble(current_value));
+				break;
+			case "square":
+				memory_result = Double.parseDouble(current_value) * Double.parseDouble(current_value);
+				break;
+			case "pow":
+				memory_result = pow(memory_result, Double.parseDouble(current_value));
+				break;
+			case "percent":
+				memory_result *= (0.01 * Double.parseDouble(current_value));
+				break;
+		}
 		if (Double.toString(memory_result).contains("NaN") || Double.toString(memory_result).contains("Infinity")) {
 			clearAll();
 			setResult(error_message);
