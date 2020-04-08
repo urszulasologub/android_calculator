@@ -82,45 +82,49 @@
 
 				<Button
 					android:id="@+id/sin_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="sin"
+					android:text="@string/sin"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
 				<Button
 					android:id="@+id/cos_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="cos"
+					android:text="@string/cos"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
 				<Button
 					android:id="@+id/tan_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="tan"
+					android:text="@string/tan"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
 				<Button
 					android:id="@+id/ln_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="ln"
+					android:text="@string/ln"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 			</LinearLayout>
@@ -132,45 +136,49 @@
 
 				<Button
 					android:id="@+id/sqrt_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="sqrt"
+					android:text="@string/sqrt"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
 				<Button
 					android:id="@+id/square_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="x^2"
+					android:text="@string/x_2"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
 				<Button
 					android:id="@+id/power_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="x^y"
+					android:text="@string/x_y"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
 				<Button
 					android:id="@+id/log_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="log"
+					android:text="@string/log"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 			</LinearLayout>

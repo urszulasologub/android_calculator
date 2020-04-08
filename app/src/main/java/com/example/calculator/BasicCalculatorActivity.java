@@ -13,7 +13,7 @@ public class BasicCalculatorActivity extends Activity {
 	private String current_value = "0";
 	private TextView result_basic;
 	private int max_length = 15;
-	final private String error_message = "ERROR";
+	final private String error_message = "Error";
 	private double memory_result = 0;
 	private String last_action = null;
 	private boolean should_reset_result = false;
