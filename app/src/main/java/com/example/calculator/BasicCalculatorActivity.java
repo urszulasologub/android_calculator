@@ -43,6 +43,19 @@ public class BasicCalculatorActivity extends Activity {
 	}
 
 
+	private boolean isPushingDotLegal() {
+		int index = current_value.lastIndexOf(".");
+		if (index == -1)
+			return true;
+		for (int i = index + 1; i < current_value.length(); ++i) {
+			if (!isDigit(current_value.charAt(i))) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -161,10 +174,10 @@ public class BasicCalculatorActivity extends Activity {
 				if (isDigit(checkLastCharacterInResult())) {
 					if (current_value.equals("0"))
 						pushToResult("0.");
-					else	pushToResult(".");
+					else if (isPushingDotLegal())
+						pushToResult(".");
 				}
 			}
-			//TODO: check how many dots in a single number
 		});
 
 		Button divide_button_basic = (Button) findViewById(R.id.divide_button_basic);
@@ -197,8 +210,8 @@ public class BasicCalculatorActivity extends Activity {
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
 					if (current_value.equals("0"))
-						pushToResult("0*");
-					pushToResult("*");
+						pushToResult("0+");
+					pushToResult("+");
 				}
 			}
 		});
