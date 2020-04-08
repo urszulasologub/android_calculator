@@ -14,6 +14,39 @@ public class BasicCalculatorActivity extends Activity {
 	private TextView result_basic;
 	private int max_length = 15;
 	final private String error_message = "ERROR";
+	private double memory_result = 0;
+	private String last_action = null;
+	private boolean should_reset_result = false;
+
+	private void countLastExpression() {
+		should_reset_result = true;
+		if (last_action == null) {
+			memory_result = Double.parseDouble(current_value);
+			return;
+		}
+		if (last_action.equals("+"))
+			memory_result = memory_result + Double.parseDouble(current_value);
+		else if (last_action.equals("-"))
+			memory_result = memory_result - Double.parseDouble(current_value);
+		else if (last_action.equals("*")) {
+			memory_result = memory_result * Double.parseDouble(current_value);
+		} else if (last_action.equals("/")) {
+			if (Double.parseDouble(current_value) == 0.0) {
+				clearAll();
+				setResult(error_message);
+				return;
+			}
+			memory_result = memory_result / Double.parseDouble(current_value);
+		}
+		setResult(Double.toString(memory_result));
+	}
+
+	private void clearAll() {
+		resetResult();
+		memory_result = 0;
+		last_action = null;
+		should_reset_result = false;
+	}
 
 
 	private void resetResult() {
@@ -29,6 +62,10 @@ public class BasicCalculatorActivity extends Activity {
 
 
 	private void pushToResult(String result) {
+		if (should_reset_result) {
+			resetResult();
+			should_reset_result = false;
+		}
 		if (current_value.equals("0") || current_value.equals(error_message))
 			current_value = "";
 		if (current_value.length() >= max_length)
@@ -40,19 +77,6 @@ public class BasicCalculatorActivity extends Activity {
 
 	private char checkLastCharacterInResult() {
 		return current_value.charAt(current_value.length() - 1);
-	}
-
-
-	private boolean isPushingDotLegal() {
-		int index = current_value.lastIndexOf(".");
-		if (index == -1)
-			return true;
-		for (int i = index + 1; i < current_value.length(); ++i) {
-			if (!isDigit(current_value.charAt(i))) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 
@@ -79,11 +103,11 @@ public class BasicCalculatorActivity extends Activity {
 		});
 
 
-		Button all_clear_button_basic = (Button) findViewById(R.id.all_clear_button_basic);
+		final Button all_clear_button_basic = (Button) findViewById(R.id.all_clear_button_basic);
 		all_clear_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				resetResult();
+				clearAll();
 			}
 		});
 
@@ -174,57 +198,60 @@ public class BasicCalculatorActivity extends Activity {
 				if (isDigit(checkLastCharacterInResult())) {
 					if (current_value.equals("0"))
 						pushToResult("0.");
-					else if (isPushingDotLegal())
-						pushToResult(".");
 				}
 			}
 		});
 
-		Button divide_button_basic = (Button) findViewById(R.id.divide_button_basic);
+		final Button divide_button_basic = (Button) findViewById(R.id.divide_button_basic);
 		divide_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
-					if (current_value.equals("0"))
-						pushToResult("0/");
-					pushToResult("/");
+					countLastExpression();
+					last_action = "/";
 				}
 			}
 		});
 
-		Button multiply_button_basic = (Button) findViewById(R.id.multiply_button_basic);
+		final Button multiply_button_basic = (Button) findViewById(R.id.multiply_button_basic);
 		multiply_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
-					if (current_value.equals("0"))
-						pushToResult("0*");
-					pushToResult("*");
+					countLastExpression();
+					last_action = "*";
 				}
 			}
 		});
 
-		Button add_button_basic = (Button) findViewById(R.id.add_button_basic);
+		final Button add_button_basic = (Button) findViewById(R.id.add_button_basic);
 		add_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
-					if (current_value.equals("0"))
-						pushToResult("0+");
-					pushToResult("+");
+					countLastExpression();
+					last_action = "+";
 				}
 			}
 		});
 
-		Button subtract_button_basic = (Button) findViewById(R.id.subtract_button_basic);
+		final Button subtract_button_basic = (Button) findViewById(R.id.subtract_button_basic);
 		subtract_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
-					if (current_value.equals("-"))
-						pushToResult("0-");
-					pushToResult("-");
+					countLastExpression();
+					last_action = "-";
 				}
+			}
+		});
+
+		Button equality_button_basic = (Button) findViewById(R.id.equality_button_basic);
+		equality_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//TODO: process current_value string
+				setResult(error_message);
 			}
 		});
 
