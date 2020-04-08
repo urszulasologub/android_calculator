@@ -6,11 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static java.lang.Character.isDigit;
+
 
 public class BasicCalculatorActivity extends Activity {
 	private String current_value = "0";
 	private TextView result_basic;
 	private int max_length = 15;
+	final private String error_message = "ERROR";
 
 
 	private void resetResult() {
@@ -19,13 +22,24 @@ public class BasicCalculatorActivity extends Activity {
 	}
 
 
-	private void modifyResult(String result) {
-		if (current_value.equals("0") || current_value.equals("ERROR"))
+	private void setResult(String result) {
+		current_value = result;
+		result_basic.setText(current_value);
+	}
+
+
+	private void pushToResult(String result) {
+		if (current_value.equals("0") || current_value.equals(error_message))
 			current_value = "";
 		if (current_value.length() >= max_length)
 			return;
 		current_value += result;
 		result_basic.setText(current_value);
+	}
+
+
+	private char checkLastCharacterInResult() {
+		return current_value.charAt(current_value.length() - 1);
 	}
 
 
@@ -42,10 +56,15 @@ public class BasicCalculatorActivity extends Activity {
 		clear_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				resetResult();
+				if (current_value.length() > 0) {
+					setResult(current_value.substring(0, current_value.length() - 1));
+					if (current_value.isEmpty())
+						resetResult();
+				}
 				//TODO: handle double click
 			}
 		});
+
 
 		Button all_clear_button_basic = (Button) findViewById(R.id.all_clear_button_basic);
 		all_clear_button_basic.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +78,7 @@ public class BasicCalculatorActivity extends Activity {
 		button0_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("0");
+				pushToResult("0");
 			}
 		});
 
@@ -67,7 +86,7 @@ public class BasicCalculatorActivity extends Activity {
 		button1_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("1");
+				pushToResult("1");
 			}
 		});
 
@@ -75,7 +94,7 @@ public class BasicCalculatorActivity extends Activity {
 		button2_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("2");
+				pushToResult("2");
 			}
 		});
 
@@ -83,7 +102,7 @@ public class BasicCalculatorActivity extends Activity {
 		button3_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("3");
+				pushToResult("3");
 			}
 		});
 
@@ -91,7 +110,7 @@ public class BasicCalculatorActivity extends Activity {
 		button4_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("4");
+				pushToResult("4");
 			}
 		});
 
@@ -99,7 +118,7 @@ public class BasicCalculatorActivity extends Activity {
 		button5_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("5");
+				pushToResult("5");
 			}
 		});
 
@@ -107,7 +126,7 @@ public class BasicCalculatorActivity extends Activity {
 		button6_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("6");
+				pushToResult("6");
 			}
 		});
 
@@ -115,7 +134,7 @@ public class BasicCalculatorActivity extends Activity {
 		button7_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("7");
+				pushToResult("7");
 			}
 		});
 
@@ -123,7 +142,7 @@ public class BasicCalculatorActivity extends Activity {
 		button8_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("8");
+				pushToResult("8");
 			}
 		});
 
@@ -131,11 +150,70 @@ public class BasicCalculatorActivity extends Activity {
 		button9_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				modifyResult("9");
+				pushToResult("9");
 			}
 		});
 
+		Button dot_button_basic = (Button) findViewById(R.id.dot_button_basic);
+		dot_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isDigit(checkLastCharacterInResult())) {
+					if (current_value.equals("0"))
+						pushToResult("0.");
+					else	pushToResult(".");
+				}
+			}
+			//TODO: check how many dots in a single number
+		});
 
+		Button divide_button_basic = (Button) findViewById(R.id.divide_button_basic);
+		divide_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isDigit(checkLastCharacterInResult())) {
+					if (current_value.equals("0"))
+						pushToResult("0/");
+					pushToResult("/");
+				}
+			}
+		});
+
+		Button multiply_button_basic = (Button) findViewById(R.id.multiply_button_basic);
+		multiply_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isDigit(checkLastCharacterInResult())) {
+					if (current_value.equals("0"))
+						pushToResult("0*");
+					pushToResult("*");
+				}
+			}
+		});
+
+		Button add_button_basic = (Button) findViewById(R.id.add_button_basic);
+		add_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isDigit(checkLastCharacterInResult())) {
+					if (current_value.equals("0"))
+						pushToResult("0*");
+					pushToResult("*");
+				}
+			}
+		});
+
+		Button subtract_button_basic = (Button) findViewById(R.id.subtract_button_basic);
+		subtract_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isDigit(checkLastCharacterInResult())) {
+					if (current_value.equals("-"))
+						pushToResult("0-");
+					pushToResult("-");
+				}
+			}
+		});
 
 
 
