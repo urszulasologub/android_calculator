@@ -9,22 +9,16 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:layout_marginStart="32dp"
-		android:layout_marginLeft="32dp"
 		android:layout_marginTop="32dp"
-		android:layout_marginEnd="32dp"
-		android:layout_marginRight="32dp"
-		android:layout_marginBottom="32dp"
 		android:orientation="vertical"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent">
+		app:layout_constraintTop_toTopOf="parent"
+		tools:layout_editor_absoluteX="32dp">
 
 		<TextView
-			android:id="@+id/textView2"
+			android:id="@+id/result_basic"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:fontFamily="sans-serif"
 			android:gravity="end"
 			android:text="00.00"
 			android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -36,31 +30,50 @@
 			android:gravity="top">
 
 			<Button
-				android:id="@+id/button9"
+				android:id="@+id/clear_button_basic"
+				style="?android:attr/buttonBarButtonStyle"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="Bksp" />
+				android:background="#3F51B5"
+				android:fontFamily="sans-serif"
+				android:text="C/CE"
+				android:textAppearance="@style/TextAppearance.AppCompat.Large"
+				android:textColor="#FFFFFF"
+				android:textColorLink="@color/colorAccent" />
 
 			<Button
-				android:id="@+id/button8"
+				android:id="@+id/all_clear_button_basic"
+				style="?android:attr/buttonBarButtonStyle"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="C" />
+				android:background="#3F51B5"
+				android:fontFamily="sans-serif"
+				android:text="AC"
+				android:textAppearance="@style/TextAppearance.AppCompat.Large"
+				android:textColor="#FFFFFF"
+				android:textColorLink="@color/colorAccent" />
 
 			<Button
-				android:id="@+id/button7"
+				android:id="@+id/negative_button_basic"
+				style="?android:attr/buttonBarButtonStyle"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="+/-" />
+				android:background="#3F51B5"
+				android:fontFamily="sans-serif"
+				android:text="+/-"
+				android:textAppearance="@style/TextAppearance.AppCompat.Large"
+				android:textColor="#FFFFFF"
+				android:textColorLink="@color/colorAccent" />
 
 		</LinearLayout>
 
 		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="match_parent">
+			android:layout_height="match_parent"
+			android:baselineAligned="false">
 
 			<LinearLayout
 				android:layout_width="wrap_content"
@@ -69,32 +82,44 @@
 				android:orientation="vertical">
 
 				<Button
-					android:id="@+id/button22"
+					android:id="@+id/button7_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="7"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button21"
+					android:id="@+id/button4_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="4"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button20"
+					android:id="@+id/button1_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="1"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button19"
+					android:id="@+id/button0_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="0"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 			</LinearLayout>
 
 			<LinearLayout
@@ -104,32 +129,44 @@
 				android:orientation="vertical">
 
 				<Button
-					android:id="@+id/button26"
+					android:id="@+id/button8_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="8"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button25"
+					android:id="@+id/button5_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="5"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button24"
+					android:id="@+id/button2_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="2"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button23"
+					android:id="@+id/dot_button_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="."
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 			</LinearLayout>
 
 			<LinearLayout
@@ -139,32 +176,44 @@
 				android:orientation="vertical">
 
 				<Button
-					android:id="@+id/button18"
+					android:id="@+id/button9_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="9"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button17"
+					android:id="@+id/button6_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="6"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button16"
+					android:id="@+id/button3_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="3"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
-					android:id="@+id/button15"
+					android:id="@+id/equality_button_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#EAEAEA"
+					android:fontFamily="sans-serif"
+					android:text="="
+					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 			</LinearLayout>
 
 			<LinearLayout
@@ -174,32 +223,48 @@
 				android:orientation="vertical">
 
 				<Button
-					android:id="@+id/button11"
+					android:id="@+id/divide_button_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#3F51B5"
+					android:fontFamily="sans-serif"
+					android:text="/ "
+					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textColor="#FFFFFF" />
 
 				<Button
-					android:id="@+id/button12"
+					android:id="@+id/multiply_button_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#3F51B5"
+					android:fontFamily="sans-serif"
+					android:text="*"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textColor="#FFFFFF" />
 
 				<Button
-					android:id="@+id/button13"
+					android:id="@+id/subtract_button_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#3F51B5"
+					android:fontFamily="sans-serif"
+					android:text="-"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textColor="#FFFFFF" />
 
 				<Button
-					android:id="@+id/button14"
+					android:id="@+id/add_button_basic"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:text="Button" />
+					android:background="#3F51B5"
+					android:fontFamily="sans-serif"
+					android:text="+"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textColor="#FFFFFF" />
 			</LinearLayout>
 		</LinearLayout>
 
