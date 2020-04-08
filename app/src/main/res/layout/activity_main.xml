@@ -4,62 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:isScrollContainer="false"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/basic_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:text="@string/basic_calculator"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/advanced_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:text="@string/advanced"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/basic_button" />
+        <Button
+            android:id="@+id/basic_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/basic_calculator" />
 
-    <Button
-        android:id="@+id/about_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:text="@string/about"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/advanced_button" />
+        <Button
+            android:id="@+id/advanced_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced" />
 
-    <Button
-        android:id="@+id/exit_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:text="@string/exit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_button"
-        tools:text="Exit" />
+        <Button
+            android:id="@+id/about_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about" />
+
+        <Button
+            android:id="@+id/exit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exit"
+            tools:text="Exit" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

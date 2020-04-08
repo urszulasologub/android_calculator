@@ -33,5 +33,13 @@ public class MainActivity extends AppCompatActivity {
                 about_dialog.show();
             }
         });
+
+        Button basic_button = (Button) findViewById(R.id.basic_button);
+        basic_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
