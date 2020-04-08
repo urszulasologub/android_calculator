@@ -40,7 +40,6 @@ public class AdvancedCalculatorActivity extends Activity {
 		else if (last_action.equals("*")) {
 			memory_result = memory_result * Double.parseDouble(current_value);
 		} else if (last_action.equals("/")) {
-
 			memory_result = memory_result / Double.parseDouble(current_value);
 		} else if (last_action.equals("sin"))
 			memory_result = sin(Math.toRadians(Double.parseDouble(current_value)));
@@ -58,6 +57,8 @@ public class AdvancedCalculatorActivity extends Activity {
 			memory_result = Double.parseDouble(current_value) * Double.parseDouble(current_value);
 		else if (last_action.equals("pow"))
 			memory_result = pow(memory_result, Double.parseDouble(current_value));
+		else if (last_action.equals("percent"))
+			memory_result *= (0.01 * Double.parseDouble(current_value));
 		if (Double.toString(memory_result).contains("NaN") || Double.toString(memory_result).contains("Infinity")) {
 			clearAll();
 			setResult(error_message);
@@ -413,6 +414,22 @@ public class AdvancedCalculatorActivity extends Activity {
 				if (isDigit(checkLastCharacterInResult())) {
 					countLastExpression();
 					last_action = "pow";
+				}
+				was_clear_clicked = false;
+			}
+		});
+
+		Button percent_button_advanced = (Button) findViewById(R.id.percent_button_advanced);
+		percent_button_advanced.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isDigit(checkLastCharacterInResult())) {
+					String action_holder = last_action;
+					double memory_holder = memory_result;
+					last_action = "percent";
+					countLastExpression();
+					last_action = action_holder;
+					memory_result = memory_holder;
 				}
 				was_clear_clicked = false;
 			}

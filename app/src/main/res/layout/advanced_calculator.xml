@@ -73,6 +73,19 @@
 					android:textColor="#FFFFFF"
 					android:textColorLink="@color/colorAccent" />
 
+				<Button
+					android:id="@+id/percent_button_advanced"
+					style="?android:attr/buttonBarButtonStyle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:background="#3F51B5"
+					android:fontFamily="sans-serif"
+					android:text="@string/percent"
+					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textColor="#FFFFFF"
+					android:textColorLink="@color/colorAccent" />
+
 			</LinearLayout>
 
 			<LinearLayout
