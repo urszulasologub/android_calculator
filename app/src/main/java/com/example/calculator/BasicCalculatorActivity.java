@@ -17,6 +17,7 @@ public class BasicCalculatorActivity extends Activity {
 	private double memory_result = 0;
 	private String last_action = null;
 	private boolean should_reset_result = false;
+	private boolean was_clear_clicked = false;
 
 	private void countLastExpression() {
 		should_reset_result = true;
@@ -98,7 +99,10 @@ public class BasicCalculatorActivity extends Activity {
 					if (current_value.isEmpty())
 						resetResult();
 				}
-				//TODO: handle double click
+				if (was_clear_clicked) {
+					resetResult();
+				}
+				was_clear_clicked = true;
 			}
 		});
 
@@ -108,6 +112,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				clearAll();
+				was_clear_clicked = false;
 			}
 		});
 
@@ -116,6 +121,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("0");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -124,6 +130,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("1");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -132,6 +139,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("2");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -140,6 +148,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("3");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -148,6 +157,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("4");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -156,6 +166,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("5");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -164,6 +175,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("6");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -172,6 +184,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("7");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -180,6 +193,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("8");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -188,6 +202,7 @@ public class BasicCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				pushToResult("9");
+				was_clear_clicked = false;
 			}
 		});
 
@@ -199,6 +214,7 @@ public class BasicCalculatorActivity extends Activity {
 					if (current_value.equals("0"))
 						pushToResult("0.");
 				}
+				was_clear_clicked = false;
 			}
 		});
 
@@ -210,6 +226,7 @@ public class BasicCalculatorActivity extends Activity {
 					countLastExpression();
 					last_action = "/";
 				}
+				was_clear_clicked = false;
 			}
 		});
 
@@ -221,6 +238,7 @@ public class BasicCalculatorActivity extends Activity {
 					countLastExpression();
 					last_action = "*";
 				}
+				was_clear_clicked = false;
 			}
 		});
 
@@ -232,6 +250,7 @@ public class BasicCalculatorActivity extends Activity {
 					countLastExpression();
 					last_action = "+";
 				}
+				was_clear_clicked = false;
 			}
 		});
 
@@ -243,6 +262,7 @@ public class BasicCalculatorActivity extends Activity {
 					countLastExpression();
 					last_action = "-";
 				}
+				was_clear_clicked = false;
 			}
 		});
 
@@ -254,6 +274,7 @@ public class BasicCalculatorActivity extends Activity {
 					countLastExpression();
 					last_action = null;
 				}
+				was_clear_clicked = false;
 			}
 		});
 
@@ -266,6 +287,7 @@ public class BasicCalculatorActivity extends Activity {
 				} else if (isDigit(current_value.charAt(0)))
 					current_value = "-" + current_value;
 				setResult(current_value);
+				was_clear_clicked = false;
 			}
 		});
 
