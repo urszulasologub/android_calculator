@@ -250,11 +250,24 @@ public class BasicCalculatorActivity extends Activity {
 		equality_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//TODO: process current_value string
-				setResult(error_message);
+				if (isDigit(checkLastCharacterInResult())) {
+					countLastExpression();
+					last_action = null;
+				}
 			}
 		});
 
+		Button negative_button_basic = (Button) findViewById(R.id.negative_button_basic);
+		negative_button_basic.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (current_value.charAt(0) == '-') {
+					current_value = current_value.substring(1);
+				} else if (isDigit(current_value.charAt(0)))
+					current_value = "-" + current_value;
+				setResult(current_value);
+			}
+		});
 
 
 
