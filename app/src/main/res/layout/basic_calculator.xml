@@ -37,7 +37,7 @@
 				android:layout_weight="1"
 				android:background="#3F51B5"
 				android:fontFamily="sans-serif"
-				android:text="C/CE"
+				android:text="@string/clear_button_basic"
 				android:textAppearance="@style/TextAppearance.AppCompat.Large"
 				android:textColor="#FFFFFF"
 				android:textColorLink="@color/colorAccent" />
@@ -50,7 +50,7 @@
 				android:layout_weight="1"
 				android:background="#3F51B5"
 				android:fontFamily="sans-serif"
-				android:text="AC"
+				android:text="@string/all_clear_button_basic"
 				android:textAppearance="@style/TextAppearance.AppCompat.Large"
 				android:textColor="#FFFFFF"
 				android:textColorLink="@color/colorAccent" />
@@ -63,7 +63,7 @@
 				android:layout_weight="1"
 				android:background="#3F51B5"
 				android:fontFamily="sans-serif"
-				android:text="+/-"
+				android:text="@string/negative_button_basic"
 				android:textAppearance="@style/TextAppearance.AppCompat.Large"
 				android:textColor="#FFFFFF"
 				android:textColorLink="@color/colorAccent" />
@@ -88,7 +88,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="7"
+					android:text="@string/button7_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -98,7 +98,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="4"
+					android:text="@string/button4_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -108,7 +108,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="1"
+					android:text="@string/button1_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -118,7 +118,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="0"
+					android:text="@string/button0_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 			</LinearLayout>
 
@@ -135,7 +135,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="8"
+					android:text="@string/button8_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -145,7 +145,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="5"
+					android:text="@string/button5_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -155,7 +155,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="2"
+					android:text="@string/button2_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -165,7 +165,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="."
+					android:text="@string/dot_button_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 			</LinearLayout>
 
@@ -182,7 +182,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="9"
+					android:text="@string/button9_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -192,7 +192,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="6"
+					android:text="@string/button6_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -202,7 +202,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="3"
+					android:text="@string/button3_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 				<Button
@@ -212,7 +212,7 @@
 					android:layout_weight="1"
 					android:background="#EAEAEA"
 					android:fontFamily="sans-serif"
-					android:text="="
+					android:text="@string/equality_button_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 			</LinearLayout>
 
@@ -229,7 +229,7 @@
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="/ "
+					android:text="@string/divide_button_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
@@ -240,7 +240,7 @@
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="*"
+					android:text="@string/multiply_button_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
@@ -251,7 +251,7 @@
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="-"
+					android:text="@string/subtract_button_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 
@@ -262,7 +262,7 @@
 					android:layout_weight="1"
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
-					android:text="+"
+					android:text="@string/add_button_basic"
 					android:textAppearance="@style/TextAppearance.AppCompat.Large"
 					android:textColor="#FFFFFF" />
 			</LinearLayout>

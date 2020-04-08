@@ -4,4 +4,23 @@
 	<string name="about">About</string>
 	<string name="advanced">Advanced</string>
 	<string name="basic_calculator">Basic</string>
+	<string name="negative_button_basic">+/-</string>
+	<string name="clear_button_basic">C/CE</string>
+	<string name="button8_basic">8</string>
+	<string name="all_clear_button_basic">AC</string>
+	<string name="divide_button_basic">/</string>
+	<string name="multiply_button_basic">*</string>
+	<string name="subtract_button_basic">-</string>
+	<string name="add_button_basic">+</string>
+	<string name="button7_basic">7</string>
+	<string name="button4_basic">4</string>
+	<string name="button5_basic">5</string>
+	<string name="button1_basic">1</string>
+	<string name="button0_basic">0</string>
+	<string name="button2_basic">2</string>
+	<string name="dot_button_basic">.</string>
+	<string name="button9_basic">9</string>
+	<string name="button6_basic">6</string>
+	<string name="button3_basic">3</string>
+	<string name="equality_button_basic">=</string>
 </resources>
