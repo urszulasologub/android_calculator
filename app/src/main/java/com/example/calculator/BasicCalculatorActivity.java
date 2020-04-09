@@ -19,6 +19,7 @@ public class BasicCalculatorActivity extends Activity {
 	private boolean should_reset_result = false;
 	private boolean was_clear_clicked = false;
 
+
 	private void countLastExpression() {
 		should_reset_result = true;
 		if (last_action == null) {
@@ -213,6 +214,8 @@ public class BasicCalculatorActivity extends Activity {
 				if (isDigit(checkLastCharacterInResult())) {
 					if (current_value.equals("0"))
 						pushToResult("0.");
+					else if (!current_value.contains("."))
+						pushToResult(".");
 				}
 				was_clear_clicked = false;
 			}
