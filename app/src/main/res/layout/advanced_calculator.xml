@@ -13,7 +13,7 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_marginTop="32dp"
+			android:layout_marginTop="15dp"
 			android:orientation="vertical"
 			app:layout_constraintTop_toTopOf="parent"
 			tools:layout_editor_absoluteX="32dp">
@@ -31,7 +31,7 @@
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="20dp"
+				android:layout_marginTop="10dp"
 				android:gravity="top">
 
 				<Button
@@ -43,7 +43,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/clear_button_basic"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF"
 					android:textColorLink="@color/colorAccent" />
 
@@ -56,7 +56,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/all_clear_button_basic"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF"
 					android:textColorLink="@color/colorAccent" />
 
@@ -69,7 +69,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/negative_button_basic"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF"
 					android:textColorLink="@color/colorAccent" />
 
@@ -82,7 +82,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/percent"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF"
 					android:textColorLink="@color/colorAccent" />
 
@@ -102,7 +102,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/sin"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 
 				<Button
@@ -114,7 +114,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/cos"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 
 				<Button
@@ -126,7 +126,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/tan"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 
 				<Button
@@ -138,7 +138,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/ln"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 			</LinearLayout>
 
@@ -156,7 +156,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/sqrt"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 
 				<Button
@@ -168,7 +168,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/x_2"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 
 				<Button
@@ -180,7 +180,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/x_y"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 
 				<Button
@@ -192,7 +192,7 @@
 					android:background="#3F51B5"
 					android:fontFamily="sans-serif"
 					android:text="@string/log"
-					android:textAppearance="@style/TextAppearance.AppCompat.Large"
+					android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 					android:textColor="#FFFFFF" />
 			</LinearLayout>
 

@@ -12,12 +12,35 @@ import static java.lang.Character.isDigit;
 public class BasicCalculatorActivity extends Activity {
 	private String current_value = "0";
 	private TextView result_basic;
-	private int max_length = 15;
+	final private int max_length = 15;
 	final private String error_message = "Error";
 	private double memory_result = 0;
 	private String last_action = null;
 	private boolean should_reset_result = false;
 	private boolean was_clear_clicked = false;
+
+
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		super.onSaveInstanceState(savedInstanceState);
+		savedInstanceState.putString("current_value", current_value);
+		savedInstanceState.putDouble("memory_result", memory_result);
+		savedInstanceState.putString("last_action", last_action);
+		savedInstanceState.putBoolean("should_reset_result", should_reset_result);
+		savedInstanceState.putBoolean("was_clear_clicked", was_clear_clicked);
+
+	}
+
+	@Override
+	public void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		current_value = savedInstanceState.getString("current_value");
+		result_basic.setText(current_value);
+		memory_result = savedInstanceState.getDouble("memory_result");
+		last_action = savedInstanceState.getString("last_action");
+		should_reset_result = savedInstanceState.getBoolean("should_reset_result");
+		was_clear_clicked = savedInstanceState.getBoolean("was_clear_clicked");
+	}
 
 
 	private void countLastExpression() {
