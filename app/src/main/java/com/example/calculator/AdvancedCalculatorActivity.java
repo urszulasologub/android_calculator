@@ -282,7 +282,7 @@ public class AdvancedCalculatorActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
-					if (current_value.equals("0"))
+					if (current_value.equals("0") || should_reset_result)
 						pushToResult("0.");
 					else if (!current_value.contains("."))
 						pushToResult(".");
