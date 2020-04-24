@@ -96,7 +96,10 @@ public class AdvancedCalculatorActivity extends Activity {
 				memory_result =  current_decimal.multiply(current_decimal);
 				break;
 			case "pow":
-				memory_result = memory_result.pow(current_decimal.intValue());
+				double d = current_decimal.doubleValue();
+				double value = memory_result.doubleValue();
+				value = pow(value, d);
+				memory_result = BigDecimal.valueOf(value);
 				break;
 			case "percent":
 				BigDecimal bd = new BigDecimal(0.01);
