@@ -99,8 +99,10 @@ public class AdvancedCalculatorActivity extends Activity {
 				memory_result = memory_result.pow(current_decimal.intValue());
 				break;
 			case "percent":
-				memory_result = current_decimal.multiply(new BigDecimal(0.01));
-				memory_result = memory_result.setScale(2, BigDecimal.ROUND_HALF_UP);
+				BigDecimal bd = new BigDecimal(0.01);
+				bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+				memory_result = current_decimal.multiply(bd);
+				//memory_result = memory_result.setScale(2, BigDecimal.ROUND_HALF_UP);
 				break;
 		}
 		if (memory_result.toString().contains("NaN") || memory_result.toString().contains("Infinity")) {
