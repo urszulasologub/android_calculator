@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+
 import static java.lang.Character.isDigit;
 
 
@@ -14,7 +16,7 @@ public class BasicCalculatorActivity extends Activity {
 	private TextView result_basic;
 	final private int max_length = 15;
 	final private String error_message = "Error";
-	private double memory_result = 0;
+	private BigDecimal memory_result = new BigDecimal(0);
 	private String last_action = null;
 	private boolean should_reset_result = false;
 	private boolean was_clear_clicked = false;
@@ -24,7 +26,7 @@ public class BasicCalculatorActivity extends Activity {
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 		super.onSaveInstanceState(savedInstanceState);
 		savedInstanceState.putString("current_value", current_value);
-		savedInstanceState.putDouble("memory_result", memory_result);
+		savedInstanceState.putDouble("memory_result",(memory_result.doubleValue()));
 		savedInstanceState.putString("last_action", last_action);
 		savedInstanceState.putBoolean("should_reset_result", should_reset_result);
 		savedInstanceState.putBoolean("was_clear_clicked", was_clear_clicked);
@@ -36,7 +38,7 @@ public class BasicCalculatorActivity extends Activity {
 		super.onRestoreInstanceState(savedInstanceState);
 		current_value = savedInstanceState.getString("current_value");
 		result_basic.setText(current_value);
-		memory_result = savedInstanceState.getDouble("memory_result");
+		memory_result = BigDecimal.valueOf(savedInstanceState.getDouble("memory_result"));
 		last_action = savedInstanceState.getString("last_action");
 		should_reset_result = savedInstanceState.getBoolean("should_reset_result");
 		was_clear_clicked = savedInstanceState.getBoolean("was_clear_clicked");
@@ -45,30 +47,31 @@ public class BasicCalculatorActivity extends Activity {
 
 	private void countLastExpression() {
 		should_reset_result = true;
+		BigDecimal current_decimal = new BigDecimal(current_value);
 		if (last_action == null) {
-			memory_result = Double.parseDouble(current_value);
+			memory_result = current_decimal;
 			return;
 		}
 		if (last_action.equals("+"))
-			memory_result = memory_result + Double.parseDouble(current_value);
+			memory_result = memory_result.add(current_decimal);
 		else if (last_action.equals("-"))
-			memory_result = memory_result - Double.parseDouble(current_value);
+			memory_result = memory_result.subtract(current_decimal);
 		else if (last_action.equals("*")) {
-			memory_result = memory_result * Double.parseDouble(current_value);
+			memory_result = memory_result.multiply(current_decimal);
 		} else if (last_action.equals("/")) {
-			if (Double.parseDouble(current_value) == 0.0) {
+			if (current_decimal.equals(0.0)) {
 				clearAll();
 				setResult(error_message);
 				return;
 			}
-			memory_result = memory_result / Double.parseDouble(current_value);
+			memory_result = memory_result.divide(current_decimal);
 		}
-		setResult(Double.toString(memory_result));
+		setResult(memory_result.toString());
 	}
 
 	private void clearAll() {
 		resetResult();
-		memory_result = 0;
+		memory_result.equals(0.0);
 		last_action = null;
 		should_reset_result = false;
 	}
