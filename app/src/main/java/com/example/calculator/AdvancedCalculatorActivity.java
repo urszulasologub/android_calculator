@@ -56,64 +56,69 @@ public class AdvancedCalculatorActivity extends Activity {
 
 	private void countLastExpression() {
 		should_reset_result = true;
-		BigDecimal current_decimal = new BigDecimal(current_value);
-		if (last_action == null) {
-			memory_result = current_decimal;
-			return;
-		}
-		switch (last_action) {
-			case "+":
-				memory_result = memory_result.add(current_decimal);
-				break;
-			case "-":
-				memory_result = memory_result.subtract(current_decimal);
-				break;
-			case "*":
-				memory_result = memory_result.multiply(current_decimal);
-				break;
-			case "/":
-				memory_result = memory_result.divide(current_decimal);
-				break;
-			case "sin":
-				memory_result = memory_result.valueOf(sin(Math.toRadians(current_decimal.doubleValue())));
-				break;
-			case "cos":
-				memory_result = memory_result.valueOf(cos(Math.toRadians(current_decimal.doubleValue())));
-				break;
-			case "tan":
-				memory_result =  memory_result.valueOf(tan(Math.toRadians(current_decimal.doubleValue())));
-				break;
-			case "ln":
-				memory_result =  memory_result.valueOf(log(current_decimal.doubleValue()));
-				break;
-			case "log":
-				memory_result =  memory_result.valueOf(log10(current_decimal.doubleValue()));
-				break;
-			case "sqrt":
-				memory_result =  memory_result.valueOf(sqrt(current_decimal.doubleValue()));
-				break;
-			case "square":
-				memory_result =  current_decimal.multiply(current_decimal);
-				break;
-			case "pow":
-				double d = current_decimal.doubleValue();
-				double value = memory_result.doubleValue();
-				value = pow(value, d);
-				memory_result = BigDecimal.valueOf(value);
-				break;
-			case "percent":
-				BigDecimal bd = new BigDecimal(0.01);
-				bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
-				memory_result = current_decimal.multiply(bd);
-				//memory_result = memory_result.setScale(2, BigDecimal.ROUND_HALF_UP);
-				break;
-		}
-		if (memory_result.toString().contains("NaN") || memory_result.toString().contains("Infinity")) {
+		try {
+			BigDecimal current_decimal = new BigDecimal(current_value);
+			if (last_action == null) {
+				memory_result = current_decimal;
+				return;
+			}
+			switch (last_action) {
+				case "+":
+					memory_result = memory_result.add(current_decimal);
+					break;
+				case "-":
+					memory_result = memory_result.subtract(current_decimal);
+					break;
+				case "*":
+					memory_result = memory_result.multiply(current_decimal);
+					break;
+				case "/":
+					memory_result = memory_result.divide(current_decimal, max_length, RoundingMode.HALF_DOWN);
+					break;
+				case "sin":
+					memory_result = memory_result.valueOf(sin(Math.toRadians(current_decimal.doubleValue())));
+					break;
+				case "cos":
+					memory_result = memory_result.valueOf(cos(Math.toRadians(current_decimal.doubleValue())));
+					break;
+				case "tan":
+					memory_result = memory_result.valueOf(tan(Math.toRadians(current_decimal.doubleValue())));
+					break;
+				case "ln":
+					memory_result = memory_result.valueOf(log(current_decimal.doubleValue()));
+					break;
+				case "log":
+					memory_result = memory_result.valueOf(log10(current_decimal.doubleValue()));
+					break;
+				case "sqrt":
+					memory_result = memory_result.valueOf(sqrt(current_decimal.doubleValue()));
+					break;
+				case "square":
+					memory_result = current_decimal.multiply(current_decimal);
+					break;
+				case "pow":
+					double d = current_decimal.doubleValue();
+					double value = memory_result.doubleValue();
+					value = pow(value, d);
+					memory_result = BigDecimal.valueOf(value);
+					break;
+				case "percent":
+					BigDecimal bd = new BigDecimal(0.01);
+					bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+					memory_result = current_decimal.multiply(bd);
+					//memory_result = memory_result.setScale(2, BigDecimal.ROUND_HALF_UP);
+					break;
+			}
+			if (memory_result.stripTrailingZeros().toPlainString().contains("NaN") || memory_result.stripTrailingZeros().toPlainString().contains("Infinity")) {
+				clearAll();
+				setResult(error_message);
+				return;
+			}
+			setResult(memory_result.stripTrailingZeros().toPlainString());
+		} catch (Exception e) {
 			clearAll();
 			setResult(error_message);
-			return;
 		}
-		setResult(memory_result.toString());
 	}
 
 	private void clearAll() {
@@ -478,7 +483,7 @@ public class AdvancedCalculatorActivity extends Activity {
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
 					String action_holder = last_action;
-					BigDecimal memory_holder = new BigDecimal(memory_result.toString());
+					BigDecimal memory_holder = new BigDecimal(memory_result.stripTrailingZeros().toPlainString());
 					last_action = "percent";
 					countLastExpression();
 					last_action = action_holder;
