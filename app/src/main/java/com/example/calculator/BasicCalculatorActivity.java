@@ -311,12 +311,14 @@ public class BasicCalculatorActivity extends Activity {
 		negative_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (current_value.charAt(0) == '-') {
-					current_value = current_value.substring(1);
-				} else if (isDigit(current_value.charAt(0)))
-					current_value = "-" + current_value;
-				setResult(current_value);
-				was_clear_clicked = false;
+				if (current_value.compareTo("0") != 0) {
+					if (current_value.charAt(0) == '-') {
+						current_value = current_value.substring(1);
+					} else if (isDigit(current_value.charAt(0)))
+						current_value = "-" + current_value;
+					setResult(current_value);
+					was_clear_clicked = false;
+				}
 			}
 		});
 
