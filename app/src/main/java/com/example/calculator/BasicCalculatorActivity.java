@@ -47,26 +47,26 @@ public class BasicCalculatorActivity extends Activity {
 
 	private void countLastExpression() {
 		should_reset_result = true;
-		BigDecimal current_decimal = new BigDecimal(current_value);
-		if (last_action == null) {
-			memory_result = current_decimal;
-			return;
-		}
-		if (last_action.equals("+"))
-			memory_result = memory_result.add(current_decimal);
-		else if (last_action.equals("-"))
-			memory_result = memory_result.subtract(current_decimal);
-		else if (last_action.equals("*")) {
-			memory_result = memory_result.multiply(current_decimal);
-		} else if (last_action.equals("/")) {
-			if (current_decimal.equals(0.0)) {
-				clearAll();
-				setResult(error_message);
+		try {
+			BigDecimal current_decimal = new BigDecimal(current_value);
+			if (last_action == null) {
+				memory_result = current_decimal;
 				return;
 			}
-			memory_result = memory_result.divide(current_decimal);
+			if (last_action.equals("+"))
+				memory_result = memory_result.add(current_decimal);
+			else if (last_action.equals("-"))
+				memory_result = memory_result.subtract(current_decimal);
+			else if (last_action.equals("*")) {
+				memory_result = memory_result.multiply(current_decimal);
+			} else if (last_action.equals("/")) {
+				memory_result = memory_result.divide(current_decimal, max_length, BigDecimal.ROUND_HALF_DOWN);
+			}
+			setResult(memory_result.stripTrailingZeros().toPlainString());
+		} catch (Exception e) {
+			clearAll();
+			setResult(error_message);
 		}
-		setResult(memory_result.toString());
 	}
 
 	private void clearAll() {
