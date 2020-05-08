@@ -14,7 +14,7 @@ import static java.lang.Character.isDigit;
 public class BasicCalculatorActivity extends Activity {
 	private String current_value = "0";
 	private TextView result_basic;
-	final private int max_length = 15;
+	final private int max_length = 13;
 	final private String error_message = "Error";
 	private BigDecimal memory_result = new BigDecimal(0);
 	private String last_action = null;
@@ -62,7 +62,7 @@ public class BasicCalculatorActivity extends Activity {
 			} else if (last_action.equals("/")) {
 				memory_result = memory_result.divide(current_decimal, max_length, BigDecimal.ROUND_HALF_DOWN);
 			}
-			setResult(memory_result.stripTrailingZeros().toPlainString());
+			setResult(memory_result.stripTrailingZeros().toEngineeringString());
 		} catch (Exception e) {
 			clearAll();
 			setResult(error_message);

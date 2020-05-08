@@ -23,7 +23,7 @@ public class AdvancedCalculatorActivity extends Activity {
 
 	private String current_value = "0";
 	private TextView result_basic;
-	final private int max_length = 15;
+	final private int max_length = 13;
 	final private String error_message = "Error";
 	private BigDecimal memory_result = new BigDecimal(0.0);
 	private String last_action = null;
@@ -104,17 +104,11 @@ public class AdvancedCalculatorActivity extends Activity {
 					break;
 				case "percent":
 					BigDecimal bd = new BigDecimal(0.01);
-					bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+					bd = bd.setScale(2, BigDecimal.ROUND_HALF_DOWN);
 					memory_result = current_decimal.multiply(bd);
-					//memory_result = memory_result.setScale(2, BigDecimal.ROUND_HALF_UP);
 					break;
 			}
-			if (memory_result.stripTrailingZeros().toPlainString().contains("NaN") || memory_result.stripTrailingZeros().toPlainString().contains("Infinity")) {
-				clearAll();
-				setResult(error_message);
-				return;
-			}
-			setResult(memory_result.stripTrailingZeros().toPlainString());
+			setResult(memory_result.stripTrailingZeros().toEngineeringString());
 		} catch (Exception e) {
 			clearAll();
 			setResult(error_message);
@@ -483,7 +477,7 @@ public class AdvancedCalculatorActivity extends Activity {
 			public void onClick(View v) {
 				if (isDigit(checkLastCharacterInResult())) {
 					String action_holder = last_action;
-					BigDecimal memory_holder = new BigDecimal(memory_result.stripTrailingZeros().toPlainString());
+					BigDecimal memory_holder = new BigDecimal(memory_result.stripTrailingZeros().toEngineeringString());
 					last_action = "percent";
 					countLastExpression();
 					last_action = action_holder;
