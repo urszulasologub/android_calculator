@@ -80,7 +80,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					memory_result = memory_result.multiply(current_decimal, m);
 					break;
 				case "/":
-					memory_result = memory_result.divide(current_decimal, max_length, RoundingMode.HALF_DOWN);
+					memory_result = memory_result.divide(current_decimal, m);
 					break;
 				case "sin":
 					memory_result = memory_result.valueOf(sin(Math.toRadians(current_decimal.doubleValue())));

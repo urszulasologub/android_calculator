@@ -62,7 +62,7 @@ public class BasicCalculatorActivity extends Activity {
 			else if (last_action.equals("*")) {
 				memory_result = memory_result.multiply(current_decimal, m);
 			} else if (last_action.equals("/")) {
-				memory_result = memory_result.divide(current_decimal, max_length, BigDecimal.ROUND_HALF_DOWN);
+				memory_result = memory_result.divide(current_decimal, m);
 			}
 			setResult(memory_result.stripTrailingZeros().toEngineeringString());
 		} catch (Exception e) {
