@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 import static java.lang.Character.isDigit;
 
@@ -16,7 +17,8 @@ public class BasicCalculatorActivity extends Activity {
 	private TextView result_basic;
 	final private int max_length = 13;
 	final private String error_message = "Error";
-	private BigDecimal memory_result = new BigDecimal(0);
+	private final MathContext m = new MathContext(max_length);
+	private BigDecimal memory_result = new BigDecimal(0.0, m);
 	private String last_action = null;
 	private boolean should_reset_result = false;
 	private boolean was_clear_clicked = false;
@@ -48,17 +50,17 @@ public class BasicCalculatorActivity extends Activity {
 	private void countLastExpression() {
 		should_reset_result = true;
 		try {
-			BigDecimal current_decimal = new BigDecimal(current_value);
+			BigDecimal current_decimal = new BigDecimal(current_value, m);
 			if (last_action == null) {
 				memory_result = current_decimal;
 				return;
 			}
 			if (last_action.equals("+"))
-				memory_result = memory_result.add(current_decimal);
+				memory_result = memory_result.add(current_decimal, m);
 			else if (last_action.equals("-"))
-				memory_result = memory_result.subtract(current_decimal);
+				memory_result = memory_result.subtract(current_decimal, m);
 			else if (last_action.equals("*")) {
-				memory_result = memory_result.multiply(current_decimal);
+				memory_result = memory_result.multiply(current_decimal, m);
 			} else if (last_action.equals("/")) {
 				memory_result = memory_result.divide(current_decimal, max_length, BigDecimal.ROUND_HALF_DOWN);
 			}

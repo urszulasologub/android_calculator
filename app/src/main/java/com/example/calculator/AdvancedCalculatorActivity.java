@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 
 import static java.lang.Character.isDigit;
@@ -24,8 +25,9 @@ public class AdvancedCalculatorActivity extends Activity {
 	private String current_value = "0";
 	private TextView result_basic;
 	final private int max_length = 13;
+	private final MathContext m = new MathContext(max_length);
 	final private String error_message = "Error";
-	private BigDecimal memory_result = new BigDecimal(0.0);
+	private BigDecimal memory_result = new BigDecimal(0.0, m);
 	private String last_action = null;
 	private boolean should_reset_result = false;
 	private boolean was_clear_clicked = false;
@@ -54,6 +56,11 @@ public class AdvancedCalculatorActivity extends Activity {
 	}
 
 
+	public static String formatDecimal(BigDecimal b, int max) {
+		return b.setScale(max, RoundingMode.HALF_EVEN).stripTrailingZeros().toEngineeringString();
+	}
+
+
 	private void countLastExpression() {
 		should_reset_result = true;
 		try {
@@ -64,13 +71,13 @@ public class AdvancedCalculatorActivity extends Activity {
 			}
 			switch (last_action) {
 				case "+":
-					memory_result = memory_result.add(current_decimal);
+					memory_result = memory_result.add(current_decimal, m);
 					break;
 				case "-":
-					memory_result = memory_result.subtract(current_decimal);
+					memory_result = memory_result.subtract(current_decimal, m);
 					break;
 				case "*":
-					memory_result = memory_result.multiply(current_decimal);
+					memory_result = memory_result.multiply(current_decimal, m);
 					break;
 				case "/":
 					memory_result = memory_result.divide(current_decimal, max_length, RoundingMode.HALF_DOWN);
@@ -94,7 +101,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					memory_result = memory_result.valueOf(sqrt(current_decimal.doubleValue()));
 					break;
 				case "square":
-					memory_result = current_decimal.multiply(current_decimal);
+					memory_result = current_decimal.pow(2, m);
 					break;
 				case "pow":
 					double d = current_decimal.doubleValue();
@@ -105,7 +112,7 @@ public class AdvancedCalculatorActivity extends Activity {
 				case "percent":
 					BigDecimal bd = new BigDecimal(0.01);
 					bd = bd.setScale(2, BigDecimal.ROUND_HALF_DOWN);
-					memory_result = current_decimal.multiply(bd);
+					memory_result = current_decimal.multiply(bd, m);
 					break;
 			}
 			setResult(memory_result.stripTrailingZeros().toEngineeringString());
