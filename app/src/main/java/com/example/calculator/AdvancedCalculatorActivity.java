@@ -24,8 +24,8 @@ public class AdvancedCalculatorActivity extends Activity {
 
 	private String current_value = "0";
 	private TextView result_basic;
-	final private int max_length = 13;
-	private final MathContext m = new MathContext(max_length);
+	final private int max_length = 20;
+	private final MathContext m = new MathContext(max_length / 2);
 	final private String error_message = "Error";
 	private BigDecimal memory_result = new BigDecimal(0.0, m);
 	private String last_action = null;
@@ -385,6 +385,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -398,6 +399,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -411,6 +413,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -424,6 +427,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -437,6 +441,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -450,6 +455,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -463,6 +469,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 
@@ -491,6 +498,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					memory_result = memory_holder;
 				}
 				was_clear_clicked = false;
+				should_reset_result = false;
 			}
 		});
 	}
