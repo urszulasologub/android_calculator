@@ -15,9 +15,9 @@ import static java.lang.Character.isDigit;
 public class BasicCalculatorActivity extends Activity {
 	private String current_value = "0";
 	private TextView result_basic;
-	final private int max_length = 13;
+	final private int max_length = 20;
+	private final MathContext m = new MathContext(max_length / 2);
 	final private String error_message = "Error";
-	private final MathContext m = new MathContext(max_length);
 	private BigDecimal memory_result = new BigDecimal(0.0, m);
 	private String last_action = null;
 	private boolean should_reset_result = false;
@@ -132,6 +132,7 @@ public class BasicCalculatorActivity extends Activity {
 					resetResult();
 				}
 				was_clear_clicked = true;
+				should_reset_result = false;
 			}
 		});
 

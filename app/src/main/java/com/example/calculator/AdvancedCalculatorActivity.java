@@ -183,6 +183,7 @@ public class AdvancedCalculatorActivity extends Activity {
 					resetResult();
 				}
 				was_clear_clicked = true;
+				should_reset_result = false;
 			}
 		});
 
@@ -385,7 +386,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -399,7 +399,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -413,7 +412,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -427,7 +425,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -441,7 +438,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -455,7 +451,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -469,7 +464,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					last_action = null;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 
@@ -498,7 +492,6 @@ public class AdvancedCalculatorActivity extends Activity {
 					memory_result = memory_holder;
 				}
 				was_clear_clicked = false;
-				should_reset_result = false;
 			}
 		});
 	}
