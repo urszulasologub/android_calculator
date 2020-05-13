@@ -119,6 +119,7 @@ public class AdvancedCalculatorActivity extends Activity {
 		} catch (Exception e) {
 			clearAll();
 			setResult(error_message);
+			should_reset_result = true;
 		}
 	}
 
@@ -174,6 +175,8 @@ public class AdvancedCalculatorActivity extends Activity {
 		clear_button_basic.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				if (current_value.equals(error_message))
+					resetResult();
 				if (current_value.length() > 0) {
 					setResult(current_value.substring(0, current_value.length() - 1));
 					if (current_value.isEmpty())
